@@ -25,31 +25,25 @@ knex('notes')
   .where({ id })
   .then(results => console.log(results[0]));
 
-// Update Note By Id accepts an ID and an object with the desired updates. It returns the updated note as an object
+
 let updateObj = {title: 'hey Im a abig title', content: 'and I a cohhhntent'};
 knex('notes')
   .where({ id })
   .update(updateObj)
-  .returning('*')
+  .returning(['id', 'title', 'content'])
   .then(results => {
-    console.log(results[0]); 
+    console.log(results); 
   }
-  );
-
-let newItem = {title: 'hey Im a new title', content: 'and Im the new content'};
-// Create a Note accepts an object with the note properties and inserts it in the DB. It returns the new note (including the new id) as an object.
-knex('notes')
-  .insert(newItem)
-  .returning('*')
-  .then(results => {
-    console.log(results[0]);
+  )
+  .catch(err => {
+    console.error(err);
   });
 
 
-// Delete Note By Id accepts an ID and deletes the note from the DB.
 
-let deleteID = 1001;
-id = deleteID;
-knex('notes')
-  .where({ id })
-  .del();
+
+
+// Update Note By Id accepts an ID and an object with the desired updates. It returns the updated note as an object
+
+// Create a Note accepts an object with the note properties and inserts it in the DB. It returns the new note (including the new id) as an object.
+// Delete Note By Id accepts an ID and deletes the note from the DB.
