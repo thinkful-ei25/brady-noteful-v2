@@ -8,13 +8,15 @@
 	},
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js"
+		"start": "node queries.js",
+		"start:dev": "nodemon scratch/queries.js"
 	},
 	"dependencies": {
 		"cors": "^2.8.4",
 		"express": "^4.16.4",
 		"knex": "^0.15.2",
 		"morgan": "^1.9.1",
+		"nodemon": "^1.18.4",
 		"pg": "^7.5.0"
 	}
 }
