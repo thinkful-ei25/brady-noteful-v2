@@ -1,7 +1,7 @@
 /* global $ */
 'use strict';
 
-const api = (function () {
+const api = (function() {
   const search = function(path, query) {
     return $.ajax({
       type: 'GET',
@@ -14,7 +14,7 @@ const api = (function () {
     return $.ajax({
       type: 'GET',
       dataType: 'json',
-      url: path,
+      url: path
     });
   };
   const update = function(path, obj) {
@@ -32,7 +32,7 @@ const api = (function () {
       url: path,
       contentType: 'application/json',
       dataType: 'json',
-      processData:false,
+      processData: false,
       data: JSON.stringify(obj)
     });
   };
@@ -40,7 +40,7 @@ const api = (function () {
     return $.ajax({
       type: 'DELETE',
       dataType: 'json',
-      url: path,
+      url: path
     });
   };
   return {
@@ -50,4 +50,4 @@ const api = (function () {
     update,
     remove
   };
-}());
+})();
